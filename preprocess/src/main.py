@@ -7,13 +7,13 @@ import preprocessing.read_files as rf
 
 def main():
 	# training and test files 
-	train_x = "../data/train_x.csv"
-	train_y = "../data/train_y.csv"
-	test = "../data/test_x.csv"
+	#train_x = "PATH TO train_x.csv"
+	#train_y = "PATH TO train_y.csv"
+	#test = "PATH TO test_x.csv"
 
 	# read the training and test files into a list of form [train_x, train_y, test]
 	# then preprocess the data
-	data = rf.readFiles(train_x, train_y, test)
-	data = ip.preprocess(data, 0.97)
+	#data = rf.readFiles(train_x, train_y, test)
+	#data = ip.preprocess(data, 0.97)
 
 main()
