@@ -14,6 +14,6 @@ def main():
 	# read the training and test files into a list of form [train_x, train_y, test]
 	# then preprocess the data
 	data = rf.readFiles(train_x, train_y, test)
-	data = ip.preprocess(data, 0.97)
+	data = ip.preProcess(data, 0.97)
 
 main()
