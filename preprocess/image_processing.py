@@ -36,7 +36,7 @@ def dilate(img):
 
 # A single method to call that does the entire preprocessing as determined by trial and error
 # This preprocess the training images, data[0], and the test images, data[2]
-def preprocess(data, threshold):
+def preProcess(data, threshold):
 	print "\nPreprocessing..."
 	print "   training data"
 	for i in xrange(0, len(data[0])):
