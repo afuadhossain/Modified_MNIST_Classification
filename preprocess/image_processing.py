@@ -27,3 +27,4 @@ def preProcess(data, threshold):
 	for i in xrange(0, len(data)):
 		data[i] = normalizeAndStretch(data[i], threshold)
 		data[i] = nd.binary_dilation(data[i])
+	return data
