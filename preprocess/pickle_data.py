@@ -1,28 +1,43 @@
+#import the data, preprocess, and save as a numpy pickle array for speed
+
 import numpy as np
 import pickle
+import image_processing as ip
 
-#import the data and save as a numpy pickle array for fastness
+print "\nPreprocessing data..."
 
 #for x_train
-print "\nreading train_x..."
+print "\ntrain_x.csv"
+print "   reading"
 x = np.loadtxt("../data/train_x.csv", delimiter=",") # load from text
 x = x.reshape(-1,64,64)
-x_out = open('x_train_data.pkl', 'wb')
+print "   preprocessing"
+x = ip.preProcess(x, 0.97)
+print "   dumping to data/pkl.x_train_data.pkl"
+x_out = open('../data/x_train_data.pkl', 'wb')
 pickle.dump(x, x_out)
 x_out.close()
 
-print "reading train_y..."
 #for y_train
+print "\ntrain_y.csv"
+print "   reading"
 y = np.loadtxt("../data/train_y.csv", delimeter=",")
-y = y.reshape(-1,1)
-y_out = open("y_train_data.pkl", delimeter=",")
+y = y.reshape(-1)
+print "   dumping to data/pkl/y_train_data.pkl"
+y_out = open('../data/y_train_data.pkl", delimeter=",")
 pickle.dump(y, y_out)
 y_out.close()
 
-print "reading test_x...\n"
 #for x_test
+print "\ntest_x.csv"
+print "   reading"
 t = np.loadtxt("../data/test_x.csv", delimeter=",")
 t = t.reshape(-1,64,64)
-t_out = open("x_test_data.pkl", delimeter=",")
+print "   preprocessing"
+t = ip.preProcess(t, 0.97)
+print "   dumping to data/x_test_data.pkl"
+t_out = open("../data/x_test_data.pkl", delimeter=",")
 pickle.dump(t, t_out)
 t_out.close()
+
+print "\nDone.\n"
