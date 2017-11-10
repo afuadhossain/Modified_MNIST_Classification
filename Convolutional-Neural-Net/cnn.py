@@ -61,8 +61,6 @@ def cnn_model_fn(features, labels, mode):
       padding="same",
       activation=tf.nn.relu)
 
-
-
   # Pooling Layer #2
   # Second max pooling layer with a 2x2 filter and stride of 2
   # Input Tensor Shape: [batch_size, 14, 14, 64]
@@ -142,18 +140,18 @@ def cnn_model_fn(features, labels, mode):
 
 def main(unused_argv):
   # Load training and eval data
-  x_in = open('../data/pkl/x_train_data.pkl','rb')
+  x_in = open('../data/x_train_data.pkl','rb')
+  y_in = open('../data/y_train_data.pkl', 'rb')
 
-  y_in = open('../data/pkl/y_train_data.pkl', 'rb')
-
-  x = pickle.load(x_in) # load from text
+  x = pickle.load(x_in) # load from text 
   print('done loading x data')
-  y = pickle.load(y_in)
+
+  y = pickle.load(y_in)  
   print('done loading y data')
+
   x = np.asarray(x, dtype=np.float32)
   y = np.asarray(y, dtype=np.int32)
-  #y = y.reshape(-1)
-  #x = x.reshape(-1, 64, 64) # reshape
+  
   ###Testing for encoding issues
 #  outcomes_vector = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 24, 25, 27, 28, 30, 32, 35, 36, 40, 42, 45, 48, 49, 54, 56, 63, 64, 72, 81]
 #  outcomes_vector =np.asarray(outcomes_vector, dtype=np.int32)
@@ -199,7 +197,6 @@ def main(unused_argv):
       shuffle=False)
   eval_results = mnist_classifier.evaluate(input_fn=eval_input_fn)
   print(eval_results)
-
 
 if __name__ == "__main__":
   tf.app.run()
