@@ -2,15 +2,7 @@
 # and a toy implementation of dilation that is only kept to keep the file structure nice
 
 import numpy as np 
-import matplotlib.pyplot as plt
 import scipy.ndimage as nd
-
-#shows all images one after another
-def showImages(imgs):
-	for i in xrange(0, len(imgs)):
-		plt.figure(i+1)
-		plt.imshow(imgs[i])
-		plt.show()
 
 # This normalizes the pixel values of *ONE* image to a range of [0,1] using the formula
 #
@@ -29,22 +21,9 @@ def normalizeAndStretch(img, threshold):
 				img[i][j] = 1.0
 	return img
 
-# This dilates the image
-def dilate(img):
-	img = nd.binary_dilation(img)
-	return img
-
-# A single method to call that does the entire preprocessing as determined by trial and error
-# This preprocess the training images, data[0], and the test images, data[2]
+# A single method to call that does the entire preprocessing.
+# First normalize and set all values to binary. Then Dilate.
 def preProcess(data, threshold):
-	print "\nPreprocessing..."
-	print "   training data"
-	for i in xrange(0, len(data[0])):
-		data[0][i] = normalizeAndStretch(data[0][i], threshold)
-		data[0][i] = dilate(data[0][i])
-	print "   test data"
-	for j in xrange(0, len(data[2])):
-		data[2][j] = normalizeAndStretch(data[2][j], threshold)
-		data[2][j] = dilate(data[2][j])
-	print "Done."
-	return data
+	for i in xrange(0, len(data)):
+		data[i] = normalizeAndStretch(data[i], threshold)
+		data[i] = nd.binary_dilation(data[i])
