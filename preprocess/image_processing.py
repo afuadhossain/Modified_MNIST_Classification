@@ -9,7 +9,7 @@ import scipy.ndimage as nd
 #           new_pixel = (old_pixel - min_val) / (max_val - min_val).
 #
 # Then sends all normalized values that are less than the threshold to 0
-# and all that are above to 1. A good threshold is about 0.97
+# and all that are above to 1. A good threshold is about 0.7 to 0.8
 def normalizeAndStretch(img, threshold):
 	min_val = np.amin(img)
 	max_val = np.amax(img)
@@ -26,5 +26,4 @@ def normalizeAndStretch(img, threshold):
 def preProcess(data, threshold):
 	for i in xrange(0, len(data)):
 		data[i] = normalizeAndStretch(data[i], threshold)
-		data[i] = nd.binary_dilation(data[i])
 	return data
