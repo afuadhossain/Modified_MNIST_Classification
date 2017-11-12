@@ -139,12 +139,9 @@ def cnn_model_fn(features, labels, mode):
 
 def main(unused_argv):
   # Load training and eval data
-    
-  #____________________________________________________________________________________________________
-  #____________________________________________________________________________________________________
-  #THESE PATHS MIGHT BE WRONG FOR YOU. MAKE SURE YOU CHANGE THEM TO THE CORRECT ONES.
-  x_in = open('../data/pkl/x_train_data.pkl','rb')
-  y_in = open('../data/pkl/y_train_data.pkl', 'rb')
+  
+  x_in = open('data/x_train_data.pkl','rb')
+  y_in = open('data/y_train_data.pkl','rb')
 
   x = pickle.load(x_in) # load from text
   print('done loading x data')
