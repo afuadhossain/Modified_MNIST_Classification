@@ -17,7 +17,22 @@ ________________________HOW TO RUN____________________________
    
 2) Run the alternate cnn
    
-   b) Write the following in a command line prompt 
+   a) make sure to run in an (virtual) environment that supports tensorflow. Information regarding this is found at https://www.tensorflow.org/install/
+   
+   b) if using a virtual environment, activate it. 
+   
+   b) The model number of the CNN must be changed every time it is re-trained. locate this code block in the file cnn/cnn_alternate.py
+   
+  #____________________________________________________________________________________________________
+  #____________________________________________________________________________________________________
+  #RIGHT HERE IS WHERE YOU HAVE TO CHANGE TO MODEL NUMBER EACH TIME
+  #IF YOU DONT IT WILL KEEP THE STORED LOSS FROM THE MODEL AND ITLL LOOK LIKE YOU ARE MAKING 
+  #MORE PROGRESS THAN YOU ACTUALLY ARE. change the line model_dir="/tmp/comp551_convnet_model1" to
+  #something like model_dir="/tmp/comp551_convnet_model2"
+  mnist_classifier = tf.estimator.Estimator(
+      model_fn=cnn_model_fn, model_dir="/tmp/comp551_convnet_model1")
+   
+   c) Write the following in a command line prompt 
           
           cd ~/ARBITRARY_PATH/comp551-project3-master
           python cnn/cnn_alternate.py
