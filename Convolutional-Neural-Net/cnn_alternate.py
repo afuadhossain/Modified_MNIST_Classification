@@ -139,6 +139,10 @@ def cnn_model_fn(features, labels, mode):
 
 def main(unused_argv):
   # Load training and eval data
+    
+  #____________________________________________________________________________________________________
+  #____________________________________________________________________________________________________
+  #THESE PATHS MIGHT BE WRONG FOR YOU. MAKE SURE YOU CHANGE THEM TO THE CORRECT ONES.
   x_in = open('../data/pkl/x_train_data.pkl','rb')
   y_in = open('../data/pkl/y_train_data.pkl', 'rb')
 
@@ -162,8 +166,15 @@ def main(unused_argv):
 
   # Create the Estimator
   # to start from scratch change the model number each time.
+
+  #____________________________________________________________________________________________________
+  #____________________________________________________________________________________________________
+  #RIGHT HERE IS WHERE YOU HAVE TO CHANGE TO MODEL NUMBER EACH TIME
+  #IF YOU DONT IT WILL KEEP THE STORED LOSS FROM THE MODEL AND ITLL LOOK LIKE YOU ARE MAKING 
+  #MORE PROGRESS THAN YOU ACTUALLY ARE. change the line model_dir="/tmp/comp551_convnet_model1" to
+  #something like model_dir="/tmp/comp551_convnet_model2"
   mnist_classifier = tf.estimator.Estimator(
-      model_fn=cnn_model_fn, model_dir="/tmp/comp551_convnet_model101")
+      model_fn=cnn_model_fn, model_dir="/tmp/comp551_convnet_model1")
 
   # Set up logging for predictions
   # Log the values in the "Softmax" tensor with label "probabilities"
@@ -183,8 +194,8 @@ def main(unused_argv):
   # a large GPU to do it. it'd take 4 hours on a macbook. 
   mnist_classifier.train(
       input_fn=train_input_fn,
-      #steps=10000
-      steps=500,
+      steps=10000
+      #steps=500,
       hooks=[logging_hook])
 
   # Evaluate the model and print results
