@@ -18,7 +18,7 @@ ________________________HOW TO RUN____________________________
          python preprocess/pickle_data.py
    
    
-2) Run the alternate cnn
+2) Run the CNN predictor
    
    a) make sure to run in an (virtual) environment that supports tensorflow. Information regarding this is found at https://www.tensorflow.org/install/
    
