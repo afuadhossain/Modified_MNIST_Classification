@@ -6,7 +6,7 @@ Note: Please retrieve the relevant .csv files from https://www.kaggle.com/c/comp
 
 
 
-________________________HOW TO RUN
+________________________HOW TO RUN_______________________
 
 1)Pickle the data
 
@@ -36,7 +36,7 @@ ________________________HOW TO RUN
 
 
 
-____________DESCRIPTION OF DIRECTORIES AND FILES
+____________DESCRIPTION OF DIRECTORIES AND FILES___________________
 
 Directory: preprocess
 
