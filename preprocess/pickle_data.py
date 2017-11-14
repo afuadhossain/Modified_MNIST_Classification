@@ -16,7 +16,7 @@ x = np.loadtxt("data/train_x.csv", delimiter=",") # load from text
 x = x.reshape(-1,64,64)
 print "   preprocessing"
 x = ip.preProcess(x, 0.7)
-print "   dumping to data/pkl.x_train_data.pkl"
+print "   dumping to data/x_train_data.pkl"
 x_out = open('data/x_train_data.pkl','wb')
 pickle.dump(x, x_out)
 x_out.close()
