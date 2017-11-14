@@ -75,6 +75,9 @@ def calculate_loss(model):
 	# Calculating the loss
 	correct_logprobs = -np.log(probs[range(num_examples), y])
 	data_loss = np.sum(correct_logprobs)
+	# Add regulatization term to loss
+	regularization_strength = 0.01
+	data_loss += regularization_strength/2 * (np.sum(np.square(W1)) + np.sum(np.square(W2)))
 	return 1./num_examples * data_loss
 
 def predict(model, x):
