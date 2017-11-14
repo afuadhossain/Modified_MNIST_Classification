@@ -159,8 +159,8 @@ def cnn_model_fn(features, labels, mode):
 def main(unused_argv):
 
     # Read in pkl files
-    x_in = open('../data/pkl/x_train_data.pkl','rb')
-    y_in = open('../data/pkl/y_train_data.pkl', 'rb')
+    x_in = open('data/x_train_data.pkl','rb')
+    y_in = open('data/y_train_data.pkl', 'rb')
     print('loading pickled data...')
     x_train = pickle.load(x_in) # load from text
     y_train = pickle.load(y_in)
@@ -195,7 +195,7 @@ def main(unused_argv):
         hooks=[logging_hook])
 
     # Load training and eval data
-    x_test_in = open('../data/pkl/x_test_data.pkl','rb')
+    x_test_in = open('data/x_test_data.pkl','rb')
     print('loading pickled data...')
     x_test = pickle.load(x_test_in) # load from text
     print('done loading data!')
