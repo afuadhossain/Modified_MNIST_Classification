@@ -24,7 +24,9 @@ ________________________HOW TO RUN____________________________
    
    b) if using a virtual environment, activate it. 
    
-   b) The model number of the CNN must be changed every time it is re-trained. locate this code block in the file cnn/cnn_alternate.py
+   b) The model number of the CNN must be changed every time it is re-trained. 
+   line 117:  model_fn=cnn_model_fn, model_dir="/tmp/comp551_convnet_model212")
+      - change "/tmp/comp551_convnet_model212" to something else such as "/tmp/comp551_convnet_model213"
    
    c) Write the following in a command line prompt 
           
