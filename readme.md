@@ -31,7 +31,7 @@ ________________________HOW TO RUN____________________________
    c) Write the following in a command line prompt 
           
           cd ~/ARBITRARY_PATH/comp551-project3-master
-          python cnn/predictCNN.py
+          python Convolutional-Neural-Net/predictCNN.py
 
 
 
