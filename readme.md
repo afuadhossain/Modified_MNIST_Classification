@@ -4,6 +4,8 @@ Objective: Devise a machine learning algorithm to automatically compute mathemat
 
 Note: Please retrieve the relevant .csv files from https://www.kaggle.com/c/comp551-modified-mnist/data and place them in the data directory.
 
+
+
 ________________________HOW TO RUN____________________________
 1)Pickle the data
 
@@ -15,6 +17,7 @@ ________________________HOW TO RUN____________________________
          
          python preprocess/pickle_data.py
    
+   
 2) Run the alternate cnn
    
    a) make sure to run in an (virtual) environment that supports tensorflow. Information regarding this is found at https://www.tensorflow.org/install/
@@ -23,19 +26,10 @@ ________________________HOW TO RUN____________________________
    
    b) The model number of the CNN must be changed every time it is re-trained. locate this code block in the file cnn/cnn_alternate.py
    
-  #____________________________________________________________________________________________________
-  #____________________________________________________________________________________________________
-  #RIGHT HERE IS WHERE YOU HAVE TO CHANGE TO MODEL NUMBER EACH TIME
-  #IF YOU DONT IT WILL KEEP THE STORED LOSS FROM THE MODEL AND ITLL LOOK LIKE YOU ARE MAKING 
-  #MORE PROGRESS THAN YOU ACTUALLY ARE. change the line model_dir="/tmp/comp551_convnet_model1" to
-  #something like model_dir="/tmp/comp551_convnet_model2"
-  mnist_classifier = tf.estimator.Estimator(
-      model_fn=cnn_model_fn, model_dir="/tmp/comp551_convnet_model1")
-   
    c) Write the following in a command line prompt 
           
           cd ~/ARBITRARY_PATH/comp551-project3-master
-          python cnn/cnn_alternate.py
+          python cnn/predictCNN.py
 
 
 
